@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+
+    <title>AsheAndCann</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+        background-color: #2bcf28;
+      }
+      
+      .form input[type="number"] {
+        width: 200px;
+      }
+
+      .lastResult {
+        color: #ffffff;
+        padding: 3px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        margin: 25px;
+      }
+
+      .joinBtn {
+    width: 10em;
+    height: 5ex;
+    background-color: #00dc00ff;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+  }
+  
+.joinBtn:hover {
+    background-color: #ff9900;
+ }
+
+ a {
+    color: darkblue;
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Pepe wants to play a leetle game kek</h1>
+    <h2>How many times will Ashe correct CannCon today?</h2>
+
+    <p>Pepe has selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. Pepe will let you know if you guess the right number. If you do then Pepe will send you 117 sats but ONLY after you can verifiably prove you've checked out his website <a href="https://pepesbitcoinstore.com/" target="_blank" rel="noopener noreferrer">Pepes Bitcoin Store</a>. So here's what you do: screenshot that you guessed the right number here, then go to my store and screenshot the top of the homepage. Edit that screenshot to include the date and time like this:</p>
+    <img src="/gameforsats.png" height="auto" width="300px">
+    <p>Then send both images here: pepemanuel@pepesbitcoinstore.com</p>
+    <p>After you've done all that I got a big oak out in my backyard that needs some limbs cut off. </p>
+    <p>Just kidding about the tree. But yeah, send me the 2 images and I'll zap ya 117 sats. Be sure to include a lightning address to avoid on-chain fees. It can be a QR code. Good luck and now start guessing you deplorable, listless vessel.</p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input type="number" min="1" max="100" required id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+  <!--<div>
+  <button>Start new game<document.queryselector(button:nth-child(10))< button="">
+  </document.queryselector(button:nth-child(10))<></button>
+  </div>
+    <div class="container">
+      <img src="./images/g20.png" height="auto" width="350px">
+    </div>
+    
+    <div class="container">
+      <a href="https://mainnet.demo.btcpayserver.org/api/v1/invoices?storeId=uCoYFrFB8NvLhKgRKL8aTdq7QhaeDHdxU7yyPNNGXaB&currency=USD" target="_blank" rel="noopener noreferrer">
+      <button class="joinBtn">SEND ME SUM SATS</button>
+      </a>
+    </div>-->
+    
+
+    
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+            const guesses = document.querySelector(".guesses");
+            const lastResult = document.querySelector(".lastResult");
+            const lowOrHi = document.querySelector(".lowOrHi");
+
+            const guessSubmit = document.querySelector(".guessSubmit");
+            const guessField = document.querySelector(".guessField");
+
+        let guessCount = 1;
+        let resetButton;
+
+        function checkGuess() {
+  const userGuess = Number(guessField.value);
+  if (guessCount === 1) {
+    guesses.textContent = "Previous guesses:";
+  }
+  guesses.textContent = `${guesses.textContent} ${userGuess}`;
+
+  if (userGuess === randomNumber) {
+    lastResult.textContent = "Congratulations! You got it right!";
+    lastResult.style.backgroundColor = "green";
+    lowOrHi.textContent = "";
+    setGameOver();
+  } else if (guessCount === 10) {
+    lastResult.textContent = "!!!GAME OVER!!!";
+    lowOrHi.textContent = "";
+    setGameOver();
+  } else {
+    lastResult.textContent = "Wrong!";
+    lastResult.style.backgroundColor = "red";
+    if (userGuess < randomNumber) {
+      lowOrHi.textContent = "Last guess was too low!";
+    } else if (userGuess > randomNumber) {
+      lowOrHi.textContent = "Last guess was too high!";
+    }
+  }
+
+  guessCount++;
+  guessField.value = "";
+  guessField.focus();
+}
+
+    guessSubmit.addEventListener("click", checkGuess);
+
+    function setGameOver() {
+  guessField.disabled = true;
+  guessSubmit.disabled = true;
+  resetButton = document.createElement("button");
+  resetButton.textContent = "Start new game";
+  document.body.append(resetButton);
+  resetButton.addEventListener("click", resetGame);
+}
+
+function resetGame() {
+  guessCount = 1;
+
+  const resetParas = document.querySelectorAll(".resultParas p");
+  for (const resetPara of resetParas) {
+    resetPara.textContent = "";
+  }
+
+  resetButton.parentNode.removeChild(resetButton);
+
+  guessField.disabled = false;
+  guessSubmit.disabled = false;
+  guessField.value = "";
+  guessField.focus();
+
+  lastResult.style.backgroundColor = "white";
+
+  randomNumber = Math.floor(Math.random() * 100) + 1;
+}
+
+</script>
+
+
+
+<div class="container">
+  <a href="https://tokenscan.io/asset/PEPECANN" target="_blank" rel="noopener noreferrer"><img src="/NFT.png" height="auto" width="350px"></a>
+</div>
+
+<div class="container">
+  <a href="https://coinos.io/qr/pepesbitcoinstore%40coinos.io/raw" target="_blank" rel="noopener noreferrer">
+  <button class="joinBtn">SEND ME SUM SATS</button>
+  </a>
+</div>
+</body>
+</html>
